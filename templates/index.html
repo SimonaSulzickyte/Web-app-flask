@@ -10,7 +10,7 @@
             <h1 class="mt-4 mb-4">
                 Job Application Form
             </h1>
-            <form>
+            <form method="post">
                 <div class="form-group mb-4">
                     <label for="first_name">
                         First Name:
@@ -41,32 +41,41 @@
                     </label>
                     <br>
                     <div class="btn-group-vertical" id="occupation">
-                        <input class="btn-check form-control" type="radio" id="employed" name="occupation" required>
+                        <input class="btn-check form-control" type="radio" id="employed" name="occupation" value="employed" required>
                         <label class="bton btn-outline-secondary" for="employed">
                             Employed
                         </label>
         
-                        <input class="btn-check form-control" type="radio" id="unemployed" name="occupation" required>
+                        <input class="btn-check form-control" type="radio" id="unemployed" name="occupation" value="unemployed" required>
                         <label class="bton btn-outline-secondary" for="unemployed">
                             Unemployed
                         </label>
         
-                        <input class="btn-check form-control" type="radio" id="self-emloyed" name="occupation" required>
+                        <input class="btn-check form-control" type="radio" id="self-emloyed" name="occupation" value="self-employed" required>
                         <label class="bton btn-outline-secondary" for="self-emloyed">
                             Self-employed
                         </label>
         
-                        <input class="btn-check form-control" type="radio" id="student" name="occupation" required>
+                        <input class="btn-check form-control" type="radio" id="student" name="occupation" value="student" required>
                         <label class="bton btn-outline-secondary" for="student">
                             Student
                         </label>
                     </div>
                 </div>
-                <button class="btn btn-secondar mb-4" type="button">
+                <button class="btn btn-secondar mb-4" type="submit">
                     Submit
                 </button>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="alert alert-success">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
             </form>
-        <div>
+        <div
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>  
     </body>
